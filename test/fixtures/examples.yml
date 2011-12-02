@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  example: MyText
+  translated: MyText
+  meaning_id: 
+
+two:
+  example: MyText
+  translated: MyText
+  meaning_id: 

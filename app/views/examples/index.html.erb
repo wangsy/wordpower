@@ -1,0 +1,27 @@
+<h1>Listing examples</h1>
+
+<table>
+  <tr>
+    <th>Example</th>
+    <th>Translated</th>
+    <th>Meaning</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @examples.each do |example| %>
+  <tr>
+    <td><%= example.example %></td>
+    <td><%= example.translated %></td>
+    <td><%= example.meaning_id %></td>
+    <td><%= link_to 'Show', example %></td>
+    <td><%= link_to 'Edit', edit_example_path(example) %></td>
+    <td><%= link_to 'Destroy', example, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Example', new_example_path %>
