@@ -24,7 +24,9 @@ class MeaningsController < ApplicationController
   # GET /meanings/new
   # GET /meanings/new.json
   def new
+    @word = Word.find(params[:word_id])
     @meaning = Meaning.new
+    @meaning.word = @word
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class MeaningsController < ApplicationController
   # GET /meanings/1/edit
   def edit
     @meaning = Meaning.find(params[:id])
+    @word = @meaning.word
   end
 
   # POST /meanings
@@ -44,7 +47,7 @@ class MeaningsController < ApplicationController
 
     respond_to do |format|
       if @meaning.save
-        format.html { redirect_to @meaning, notice: 'Meaning was successfully created.' }
+        format.html { redirect_to word_path(@meaning.word), notice: 'Meaning was successfully created.' }
         format.json { render json: @meaning, status: :created, location: @meaning }
       else
         format.html { render action: "new" }
