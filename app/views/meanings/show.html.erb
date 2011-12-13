@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Word:</b>
+  <%= @meaning.word.word %>
+</p>
+
+<p>
+  <b>Meaning:</b>
+  <%= @meaning.meaning %>
+</p>
+
+
+<%= link_to 'Edit', edit_meaning_path(@meaning) %> |
+<%= link_to 'Back', word_path(@meaning.word) %>

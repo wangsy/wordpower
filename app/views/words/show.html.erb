@@ -4,7 +4,19 @@
   <b>Word:</b>
   <%= @word.word %>
 </p>
-
+<p>
+	<b>Meanings:</b>
+	<% if !@word.meanings.blank? %>
+	<ul>
+	  <% for item in @word.meanings %>
+	    <li><%= link_to item.meaning, meaning_path(item) %></li>
+	  <% end %>
+	</ul>
+	<% else %>
+	  
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_word_path(@word) %> |
-<%= link_to 'Back', words_path %>
+<%= link_to 'Back', words_path %> |
+<%= link_to "Add Meaning", new_meaning_path(word_id:@word) %>

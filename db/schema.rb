@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123152400) do
+ActiveRecord::Schema.define(:version => 20111202031111) do
+
+  create_table "examples", :force => true do |t|
+    t.text     "example"
+    t.text     "translated"
+    t.integer  "meaning_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meanings", :force => true do |t|
+    t.integer  "word_id"
+    t.text     "meaning"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "words", :force => true do |t|
     t.string   "word"
