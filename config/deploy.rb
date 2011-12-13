@@ -1,9 +1,10 @@
 set :application, "wordpower"
 set :repository,  "git@github.com:wangsy/wordpower.git"
+set :deploy_to, "/home/wangsy/work/wordpower"
 
 $:.unshift(File.expand_path('./lib',ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, '1.9.2'
+set :rvm_ruby_string, '1.9.2-p290'
 set :rvm_type, :user
 
 set :scm, :git
@@ -13,10 +14,11 @@ set :use_sudo, false
 set :rails_env, :production
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "mintech.iptime.org"                          # Your HTTP server, Apache/etc
-role :app, "mintech.iptime.org"                          # This may be the same as your `Web` server
-role :db,  "mintech.iptime.org", :primary => true # This is where Rails migrations will run
+role :web, "mintech.iptime.org:3022"                          # Your HTTP server, Apache/etc
+role :app, "mintech.iptime.org:3022"                          # This may be the same as your `Web` server
+role :db,  "mintech.iptime.org:3022", :primary => true # This is where Rails migrations will run
 
+default_run_options[:pty] = true
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
